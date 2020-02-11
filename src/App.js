@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import "typeface-roboto";
+
+// Pages
+import Dashboard from "./components/pages/Dashboard/index";
+import Profile from "./components/pages/Profile/index";
+import NewProject from "./components/pages/NewProject";
+
+class App extends Component {
+  state = {};
+  render() {
+    return (
+      <React.Fragment>
+        <div className="App">
+          App
+          <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/profile" component={Profile} />
+            <Route path="/new-project" component={NewProject} />
+          </Switch>
+        </div>
+      </React.Fragment>
+    );
+  }
 }
 
 export default App;
