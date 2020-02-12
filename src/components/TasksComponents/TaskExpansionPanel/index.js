@@ -18,9 +18,15 @@ const useStyles = makeStyles(theme => ({
     marginLeft: "auto",
     paddingRight: "1rem"
   },
+  headingWrapper: {
+    borderTop: "blue 2px solid",
+
+    backgroundColor: "#f8f8f8"
+  },
   heading: {
     fontSize: theme.typography.pxToRem(16),
-    fontWeight: theme.typography.fontWeightRegular
+    fontWeight: theme.typography.fontWeightRegular,
+    width: "100%"
   },
   taskDescription: {
     textAlign: "left"
@@ -41,6 +47,7 @@ export default function TaskExpansionPanel(props) {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          className={classes.headingWrapper}
         >
           <Typography className={classes.heading}>
             {props.panelTitle}
@@ -57,7 +64,7 @@ export default function TaskExpansionPanel(props) {
             <br></br>
 
             <SubTaskExpansionPanel
-              panelTitle="Sub Task 1: Buy a book"
+              panelTitle="Sub Task 1: Find a papers"
               panelDescription={<PanelDescription />}
             />
             <SubTaskExpansionPanel
@@ -72,7 +79,8 @@ export default function TaskExpansionPanel(props) {
             <TaskDetailsCard
               assignedBy={"Fedrick"}
               assignee={"Katie"}
-              taskTime="14 min"
+              timeValue="14"
+              timeUnit="min"
             />
           </Typography>
         </ExpansionPanelDetails>

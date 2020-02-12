@@ -12,11 +12,18 @@ import TaskDetailsCard from "../TaskDetailsCard";
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
-    marginBottom: "10px"
+    marginBottom: "10px",
+    borderTop: "orange 2px solid"
+  },
+  subTaskWrapper: {
+    backgroundColor: "orange",
+    color: "white",
+    fontWeight: "bolder"
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
-    fontWeight: theme.typography.fontWeightRegular
+    fontWeight: theme.typography.fontWeightRegular,
+    width: "100%"
   },
   taskDescription: {
     textAlign: "left"
@@ -33,6 +40,7 @@ export default function SubTaskExpansionPanel(props) {
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"
           id="panel1a-header"
+          className={classes.subTaskWrapper}
         >
           <Typography className={classes.heading}>
             {props.panelTitle}
@@ -44,7 +52,8 @@ export default function SubTaskExpansionPanel(props) {
             <TaskDetailsCard
               assignedBy={"Fedrick"}
               assignee={"Katie"}
-              taskTime="14 min"
+              timeValue="5"
+              timeUnit="min"
             />
           </Typography>
         </ExpansionPanelDetails>

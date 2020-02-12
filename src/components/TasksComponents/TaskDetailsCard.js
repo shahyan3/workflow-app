@@ -1,5 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
+import TaskTimeIcon from "./TaskTimeIcon";
 
 const useStyles = makeStyles(theme => ({
   detailsRoot: {
@@ -10,7 +11,11 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "space-around"
   },
   taskDetailsFlexItems: {
-    marginRight: "2rem"
+    marginRight: "2rem",
+    backgroundColor: "#EEEEEE",
+    borderRadius: "10px",
+    padding: "0.7rem",
+    fontSize: "90%"
   }
 }));
 const TaskDetailsCard = props => {
@@ -28,7 +33,7 @@ const TaskDetailsCard = props => {
           Assignee: {props.assignee}
         </p>
         <p className={classes.taskDetailsFlexItems}>
-          Task Time: {props.taskTime}
+          <TaskTimeIcon timeValue={props.timeValue} timeUnit={props.timeUnit} />
         </p>
       </div>
     </div>
