@@ -14,7 +14,7 @@ import PanelDescription from "../PanelDescription";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    width: "60%",
+    width: "100%",
     marginLeft: "auto",
     paddingRight: "1rem"
   },
