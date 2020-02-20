@@ -24,6 +24,8 @@ import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import TimelineIcon from "@material-ui/icons/Timeline";
 import OfflineBoltIcon from "@material-ui/icons/OfflineBolt";
 
+import { Link } from "react-router-dom";
+
 // custom google font
 
 const drawerWidth = 240;
@@ -68,6 +70,10 @@ const useStyles = makeStyles(theme => ({
       fontFamily: "Montserrat, sans-serif",
       fontWeight: "bolder"
     }
+  },
+  menuLink: {
+    color: "black",
+    textDecoration: "none"
   }
 }));
 
@@ -87,42 +93,61 @@ function NavBar(props) {
         <ProfileDisplay />
       </div>
       <List className={classes.topMenuWrapper}>
-        <ListItem button>
-          <ListItemIcon>
-            <DashboardIcon fontSize={"small"} />
-          </ListItemIcon>
-          <ListItemText className={classes.listItemText} primary={"OVERVIEW"} />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <OfflineBoltIcon fontSize={"small"} />
-          </ListItemIcon>
-          <ListItemText className={classes.listItemText} primary={"SPRINTS"} />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <ChromeReaderModeIcon fontSize={"small"} />
-          </ListItemIcon>
-          <ListItemText className={classes.listItemText} primary={"PROJECTS"} />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-            <TimelineIcon fontSize={"small"} />
-          </ListItemIcon>
-          <ListItemText
-            className={classes.listItemText}
-            primary={"ANALYTICS"}
-          />
-        </ListItem>
+        <Link className={classes.menuLink} to="/">
+          <ListItem button>
+            <ListItemIcon>
+              <DashboardIcon fontSize={"small"} />
+            </ListItemIcon>
+            <ListItemText
+              className={classes.listItemText}
+              primary={"OVERVIEW"}
+            />
+          </ListItem>
+        </Link>
+        <Link className={classes.menuLink} to="/sprints">
+          <ListItem button>
+            <ListItemIcon>
+              <OfflineBoltIcon fontSize={"small"} />
+            </ListItemIcon>
+            <ListItemText
+              className={classes.listItemText}
+              primary={"SPRINTS"}
+            />
+          </ListItem>
+        </Link>
+        <Link className={classes.menuLink} to="/new-project">
+          <ListItem button>
+            <ListItemIcon>
+              <ChromeReaderModeIcon fontSize={"small"} />
+            </ListItemIcon>
+            <ListItemText
+              className={classes.listItemText}
+              primary={"PROJECTS"}
+            />
+          </ListItem>
+        </Link>
+        <Link className={classes.menuLink} to="/analytics">
+          <ListItem button>
+            <ListItemIcon>
+              <TimelineIcon fontSize={"small"} />
+            </ListItemIcon>
+            <ListItemText
+              className={classes.listItemText}
+              primary={"ANALYTICS"}
+            />
+          </ListItem>
+        </Link>
       </List>
       <List className={classes.bottomMenuWrapper}>
         <Divider />
-        <ListItem button>
-          <ListItemIcon>
-            <ExitToAppIcon fontSize={"small"} color="primary" />
-          </ListItemIcon>
-          <ListItemText className={classes.listItemText} primary={"SIGN OUT"} />
-        </ListItem>
+        <Link className={classes.menuLink} to="/logout">
+          <ListItem button>
+            <ListItemIcon>
+              <ExitToAppIcon fontSize={"small"} color="primary" />
+            </ListItemIcon>
+            <ListItemText className={classes.listItemText} primary={"LOGOUT"} />
+          </ListItem>
+        </Link>
       </List>
     </div>
   );
