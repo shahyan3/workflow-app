@@ -7,7 +7,7 @@ import "typeface-roboto";
 // Pages
 import Dashboard from "./components/pages/Dashboard/index";
 import Profile from "./components/pages/Profile/index";
-import NewProject from "./components/pages/NewProject";
+import ProjectPage from "./components/pages/Project/ProjectPage";
 
 class App extends Component {
   state = {};
@@ -19,7 +19,7 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/profile" component={Profile} />
-            <Route path="/new-project" component={NewProject} />
+            <Route path="/projects" component={ProjectPage} />
           </Switch>
         </div>
       </React.Fragment>

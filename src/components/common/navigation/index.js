@@ -115,7 +115,7 @@ function NavBar(props) {
             />
           </ListItem>
         </Link>
-        <Link className={classes.menuLink} to="/new-project">
+        <Link className={classes.menuLink} to="/projects">
           <ListItem button>
             <ListItemIcon>
               <ChromeReaderModeIcon fontSize={"small"} />

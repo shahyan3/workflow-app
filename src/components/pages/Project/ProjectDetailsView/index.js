@@ -31,7 +31,7 @@ const theme = createMuiTheme({
   }
 });
 
-export default function CustomizedInputs() {
+export default function ProjectDetailsView() {
   const classes = useStyles();
 
   return (
