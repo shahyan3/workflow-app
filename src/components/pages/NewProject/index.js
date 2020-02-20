@@ -11,21 +11,16 @@ import CustomizedInputs from "../../ProjectOverview/index";
 import { Paper } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    display: "flex",
-    flexDirection: "column"
-  },
-  margin: {
-    margin: theme.spacing(1)
-  },
   projectContainer: {
-    display: "flex"
+    display: "flex",
+    justifyContent: "space-around",
+    paddingTop: "10px"
   },
   projectOverviewWrapper: {
     width: "40%"
   },
   tasksContainer: {
-    width: "60%"
+    width: "55%"
   }
 }));
 
@@ -36,7 +31,6 @@ const NewProject = () => {
     <React.Fragment>
       <div className={classes.projectContainer}>
         <div className={classes.projectOverviewWrapper}>
-          <h1>New Project</h1>
           <Paper elevation={7}>
             <div className="project">
               <CustomizedInputs />
@@ -44,6 +38,7 @@ const NewProject = () => {
           </Paper>
         </div>
         <div className={classes.tasksContainer}>
+          <h3>ALL TASKS</h3>
           <TaskExpansionPanel
             panelTitle={<PanelTitle />}
             panelDetails={<PanelDetails />}

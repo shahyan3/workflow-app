@@ -36,3 +36,6 @@
     transform: rotate(360deg);
   }
 }
+
+/* Custom Google Fonts Import*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");

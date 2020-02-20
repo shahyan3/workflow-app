@@ -16,7 +16,8 @@ const useStyles = makeStyles(theme => ({
   root: {
     width: "100%",
     marginLeft: "auto",
-    paddingRight: "1rem"
+    paddingRight: "1rem",
+    backgroundColor: "#f8f8f8"
   },
   headingWrapper: {
     borderTop: "blue 2px solid",
