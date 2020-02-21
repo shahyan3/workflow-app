@@ -1,55 +1,56 @@
 import React from "react";
-
 import { makeStyles } from "@material-ui/core/styles";
-
-// components
-import { Paper } from "@material-ui/core";
-import CreateTaskBtn from "../TasksComponents/CreateTaskBtn/index";
-import TaskExpansionPanel from "../TasksComponents/TaskExpansionPanel/index";
-import PanelTitle from "../TasksComponents/PanelTitle";
-import PanelDescription from "../TasksComponents/PanelDescription";
-import ProjectDetailsView from "../ProjectDetailsView/index";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import LayoutGrid from "../../../common/layout/LayoutGrid";
 
 const useStyles = makeStyles(theme => ({
-  projectContainer: {
-    display: "flex",
-    justifyContent: "space-around",
-    paddingTop: "10px"
+  root: {
+    maxWidth: 345
   },
-  projectOverviewWrapper: {
-    width: "40%"
-  },
-  tasksContainer: {
-    width: "55%"
+  media: {
+    height: 140
   }
 }));
 
 const ExistingProjectView = () => {
   const classes = useStyles();
 
-  return (
-    <React.Fragment>
-      <main className={classes.content}>
-        <div className={classes.projectContainer}>
-          <div className={classes.projectOverviewWrapper}>
-            <Paper elevation={2}>
-              <div className="project">
-                <ProjectDetailsView />
-              </div>
-            </Paper>
-          </div>
-          <div className={classes.tasksContainer}>
-            <h3>ALL TASKS</h3>
-            <TaskExpansionPanel
-              panelTitle={<PanelTitle />}
-              panelDetails={<PanelDescription />}
-            />
-            <CreateTaskBtn />
-          </div>
-        </div>
-      </main>
-    </React.Fragment>
+  const view = (
+    <Card className={classes.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classes.media}
+          image="/static/images/cards/contemplative-reptile.jpg"
+          title="Contemplative Reptile"
+        />
+        <CardContent>
+          <Typography variant="subtitle2" color="primary">
+            Project
+          </Typography>
+
+          <Typography gutterBottom variant="h5" component="h2">
+            Write A Novel
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Lizards are a widespread group of squamate reptiles, with over 6,000
+            species, ranging across all continents except Antarctica
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button size="small" color="primary">
+          Edit or Update
+        </Button>
+      </CardActions>
+    </Card>
   );
+  return <LayoutGrid view={view}></LayoutGrid>;
 };
 
 export default ExistingProjectView;

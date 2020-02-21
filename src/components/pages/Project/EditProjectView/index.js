@@ -25,18 +25,34 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const NoProjectView = () => {
+const EditProjectView = () => {
   const classes = useStyles();
 
-  const view = (
+  const projectView = (
     <React.Fragment>
       <main className={classes.content}>
-        <h2> no Project </h2>
+        <div className={classes.projectContainer}>
+          <div className={classes.projectOverviewWrapper}>
+            <Paper elevation={2}>
+              <div className="project">
+                <ProjectDetailsView />
+              </div>
+            </Paper>
+          </div>
+          <div className={classes.tasksContainer}>
+            <h3>ALL TASKS</h3>
+            <TaskExpansionPanel
+              panelTitle={<PanelTitle />}
+              panelDetails={<PanelDescription />}
+            />
+            <CreateTaskBtn />
+          </div>
+        </div>
       </main>
     </React.Fragment>
   );
 
-  return <LayoutGrid view={view} />;
+  return <LayoutGrid view={projectView} />;
 };
 
-export default NoProjectView;
+export default EditProjectView;

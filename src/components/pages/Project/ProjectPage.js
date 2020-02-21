@@ -4,8 +4,9 @@ import { Paper } from "@material-ui/core";
 // components
 import CreateProjectForm from "./CreateProjectForm/index";
 import NavBar from "../../common/navigation";
+import EditProjectView from "./EditProjectView/index";
+import ExistingProjectView from "./ExistingProjectView/index";
 import NoProjectView from "./NoProjectsView";
-import ExistingProjectView from "./ExistingProjectView";
 
 const ProjectPage = () => {
   return (
@@ -18,8 +19,11 @@ const ProjectPage = () => {
       {/* if create project component clicked - show create project form components*/}
       {/* <CreateProjectForm /> */}
 
-      {/* if there are projects in database one is selected -- show this one*/}
+      {/* if there are projects in database -- show this one*/}
       {/* <ExistingProjectView /> */}
+
+      {/* edit project view */}
+      {/* <EditProjectView /> */}
     </React.Fragment>
   );
 };
