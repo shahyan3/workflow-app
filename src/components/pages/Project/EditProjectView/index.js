@@ -15,13 +15,14 @@ const useStyles = makeStyles(theme => ({
   projectContainer: {
     display: "flex",
     justifyContent: "space-around",
-    paddingTop: "10px"
+    paddingTop: "10px",
+    flexDirection: "row-reverse"
   },
   projectOverviewWrapper: {
-    width: "40%"
+    width: "35%"
   },
   tasksContainer: {
-    width: "55%"
+    width: "60%"
   }
 }));
 
@@ -34,9 +35,7 @@ const EditProjectView = () => {
         <div className={classes.projectContainer}>
           <div className={classes.projectOverviewWrapper}>
             <Paper elevation={2}>
-              <div className="project">
-                <ProjectDetailsView />
-              </div>
+              <div className="project">{<ProjectDetailsView />}</div>
             </Paper>
           </div>
           <div className={classes.tasksContainer}>

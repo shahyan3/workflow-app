@@ -2,16 +2,19 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Typography } from "@material-ui/core";
+import { lineHeight } from "@material-ui/system";
 
 const useStyles = makeStyles(theme => ({
   infoBoxTitle: {
-    marginTop: "25px"
+    marginTop: "25px",
+    marginBottom: "10px"
   },
   flexItem: {
     width: "28%",
     height: "100px",
     margin: "20px",
-    flexGrow: "1"
+    flexGrow: "1",
+    textAlign: "center"
   }
 }));
 

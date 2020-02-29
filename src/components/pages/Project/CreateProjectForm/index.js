@@ -3,25 +3,28 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // components
 import NavBar from "../../../common/navigation";
+import LayoutGrid from "../../../common/layout/LayoutGrid";
+import SimpleModal from "../../../common/modal";
 
 const useStyles = makeStyles(theme => ({
-  content: {}
+  root: {
+    // backgroundColor: "red",
+    textAlign: "right"
+  }
 }));
 
 const CreateProjectForm = props => {
   const classes = useStyles();
 
-  return (
+  const view = (
     <React.Fragment>
-      <main className={classes.content}>
-        <h1>new project form here...</h1>
-        <h1>new project form here...</h1>
-        <h1>new project form here...</h1>
-        <h1>new project form here...</h1>
-        <h1>new project form here...</h1>
+      <main className={classes.root}>
+        <SimpleModal />
       </main>
     </React.Fragment>
   );
+
+  return <LayoutGrid view={view}></LayoutGrid>;
 };
 
 export default CreateProjectForm;

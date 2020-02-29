@@ -22,7 +22,8 @@ const useStyles = makeStyles(theme => ({
   },
   tasksContainer: {
     width: "55%"
-  }
+  },
+  wrapper: {}
 }));
 
 const NoProjectView = () => {
@@ -30,7 +31,7 @@ const NoProjectView = () => {
 
   const view = (
     <React.Fragment>
-      <main className={classes.content}>
+      <main className={classes.wrapper}>
         <h2> no Project </h2>
       </main>
     </React.Fragment>

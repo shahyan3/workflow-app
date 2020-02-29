@@ -11,7 +11,8 @@ import TextArea from "./TextArea";
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    marginTop: "50px"
   },
   margin: {
     margin: theme.spacing(1)
@@ -40,8 +41,10 @@ export default function ProjectDetailsView() {
         <TextField
           className={classes.margin}
           label="Project Name"
+          value="Research paper for school"
           variant="outlined"
           id="mui-theme-provider-outlined-input"
+          disabled="true"
         />
       </ThemeProvider>
 

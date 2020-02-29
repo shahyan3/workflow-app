@@ -18,6 +18,8 @@ const TextArea = props => {
       aria-label="project-overview"
       rowsMin={8}
       placeholder="Overview"
+      disabled="true"
+      value="Find top ten websites and write an essay on why world markets will collapse"
     />
   );
 };

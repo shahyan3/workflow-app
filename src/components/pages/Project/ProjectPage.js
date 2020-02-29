@@ -13,14 +13,14 @@ const ProjectPage = () => {
     <React.Fragment>
       <NavBar />
 
-      {/* if no projects in database show  show no project components*/}
-      <NoProjectView />
+      {/* if no projects in database show  show no project components *DON'T NEED IT?*S*/}
+      {/* <NoProjectView /> delete this not needed. use only below components.*/}
 
       {/* if create project component clicked - show create project form components*/}
       {/* <CreateProjectForm /> */}
 
       {/* if there are projects in database -- show this one*/}
-      {/* <ExistingProjectView /> */}
+      <ExistingProjectView />
 
       {/* edit project view */}
       {/* <EditProjectView /> */}
