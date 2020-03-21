@@ -1,12 +1,8 @@
 import React from "react";
-import { Paper } from "@material-ui/core";
 
 // components
-import CreateProjectForm from "./CreateProjectForm/index";
 import NavBar from "../../common/navigation";
-import EditProjectView from "./EditProjectView/index";
 import ExistingProjectView from "./ExistingProjectView/index";
-import NoProjectView from "./NoProjectsView";
 
 const ProjectPage = () => {
   return (

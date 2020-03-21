@@ -8,6 +8,8 @@ import "typeface-roboto";
 import Dashboard from "./components/pages/Dashboard/index";
 import Profile from "./components/pages/Profile/index";
 import ProjectPage from "./components/pages/Project/ProjectPage";
+import SprintsView from "./components/pages/Sprints/index";
+import AnalyticsView from "./components/pages//Analytics";
 
 class App extends Component {
   state = {};
@@ -20,6 +22,8 @@ class App extends Component {
             <Route path="/" exact component={Dashboard} />
             <Route path="/profile" component={Profile} />
             <Route path="/projects" component={ProjectPage} />
+            <Route path="/sprints" component={SprintsView} />
+            <Route path="/analytics" component={AnalyticsView} />
           </Switch>
         </div>
       </React.Fragment>

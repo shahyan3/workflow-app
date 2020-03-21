@@ -31,18 +31,13 @@ const useStyles = makeStyles(theme => ({
   paper: {
     position: "absolute",
     width: "50%",
-    height: "80%",
+    // height: "82%",
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3)
   },
-  formWrapper: {
-    display: "flex",
-    justifyContent: "center",
-    // backgroundColor: "blue",
-    flexDirection: "column"
-  },
+
   datesWrapper: {
     display: "flex",
     justifyContent: "space-around"
@@ -58,7 +53,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal(props) {
   const classes = useStyles();
   // getModalStyle is not a pure function, we roll the style only on the first render
   const [modalStyle] = React.useState(getModalStyle);
@@ -75,7 +70,7 @@ export default function SimpleModal() {
   return (
     <div>
       <Button variant="contained" color="primary" onClick={handleOpen}>
-        NEW PROJECT
+        {props.btnName}
       </Button>
       <Modal
         aria-labelledby="simple-modal-title"
@@ -84,62 +79,66 @@ export default function SimpleModal() {
         onClose={handleClose}
       >
         <div style={modalStyle} className={classes.paper}>
-          <h3>START A NEW PROJECT</h3>
-          <hr></hr>
-          <FormControl classes={{ root: classes.formWrapper }}>
-            <InputLabel htmlFor="my-input">Project Name</InputLabel>
-            <Input id="my-input" aria-describedby="my-helper-text" />
-            <br></br>
-            <TextField
-              id="filled-multiline-static"
-              label="Description"
-              multiline
-              rows="4"
-              defaultValue=""
-              variant="filled"
-            />
-            <br />
-            <div className={classes.datesWrapper}>
+          {props.innerComponent}
+
+          {/* <div>
+            <h3>START A NEW PROJECT</h3>
+            <hr></hr>
+            <FormControl classes={{ root: classes.formWrapper }}>
+              <InputLabel htmlFor="my-input">Project Name</InputLabel>
+              <Input id="my-input" aria-describedby="my-helper-text" />
+              <br></br>
               <TextField
-                id="date"
-                label="Start"
-                type="date"
-                defaultValue="2017-05-24"
-                className={classes.dateItem}
-                InputLabelProps={{
-                  shrink: true
-                }}
+                id="filled-multiline-static"
+                label="Description"
+                multiline
+                rows="4"
+                defaultValue=""
+                variant="filled"
               />
-              <TextField
-                id="date"
-                label="End"
-                type="date"
-                defaultValue="2017-05-24"
-                className={classes.dateItem}
-                InputLabelProps={{
-                  shrink: true
-                }}
-              />
+              <br />
+              <div className={classes.datesWrapper}>
+                <TextField
+                  id="date"
+                  label="Start"
+                  type="date"
+                  defaultValue="2017-05-24"
+                  className={classes.dateItem}
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                />
+                <TextField
+                  id="date"
+                  label="End"
+                  type="date"
+                  defaultValue="2017-05-24"
+                  className={classes.dateItem}
+                  InputLabelProps={{
+                    shrink: true
+                  }}
+                />
+              </div>
+              <br></br>
+              <br></br>
+              <FormHelperText
+                id="my-helper-text"
+                className={classes.createdByStyle}
+              >
+                Created By <span>Shahyan Hasan</span>
+              </FormHelperText>
+            </FormControl>{" "}
+            <br /> <br />
+            <div className={classes.btnWrapper}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={() => alert("created!")}
+              >
+                CREATE PROJECT
+              </Button>
             </div>
-            <br></br>
-            <br></br>
-            <FormHelperText
-              id="my-helper-text"
-              className={classes.createdByStyle}
-            >
-              Created By <span>Shahyan Hasan</span>
-            </FormHelperText>
-          </FormControl>{" "}
-          <br /> <br />
-          <div className={classes.btnWrapper}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={() => alert("created!")}
-            >
-              CREATE PROJECT
-            </Button>
-          </div>
+          </div> */}
         </div>
       </Modal>
     </div>
