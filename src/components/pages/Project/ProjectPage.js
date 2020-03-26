@@ -1,27 +1,59 @@
-import React from "react";
-
+import React, { Component } from "react";
 // components
 import NavBar from "../../common/navigation";
 import ExistingProjectView from "./ExistingProjectView/index";
+import CreateProjectForm from "./CreateProjectForm/index";
 
-const ProjectPage = () => {
-  return (
-    <React.Fragment>
-      <NavBar />
+var database = require("../../../database");
 
-      {/* if no projects in database show  show no project components *DON'T NEED IT?*S*/}
-      {/* <NoProjectView /> delete this not needed. use only below components.*/}
+class ProjectPage extends Component {
+  state = {
+    projects: [{ a: "a" }]
+  };
 
-      {/* if create project component clicked - show create project form components*/}
-      {/* <CreateProjectForm /> */}
+  componentDidMount() {
+    // ajax request to database from all projects
+    const projects = database.projects;
 
-      {/* if there are projects in database -- show this one*/}
-      <ExistingProjectView />
+    // add to state
+    this.setState({ projects });
+  }
 
-      {/* edit project view */}
-      {/* <EditProjectView /> */}
-    </React.Fragment>
-  );
-};
+  onNewProjectSaved = () => {
+    // ajax request to database from all projects
+    const projects = database.projects;
+
+    // add to state
+    this.setState({ projects });
+
+    console.log("yoyo", projects);
+  };
+  render() {
+    const projects = this.state.projects;
+    return (
+      <React.Fragment>
+        <NavBar />
+
+        <CreateProjectForm onSave={this.onNewProjectSaved} />
+
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap"
+          }}
+        >
+          {projects.map(project => (
+            <div style={{ width: "50%" }}>
+              <ExistingProjectView project={project} />
+            </div>
+          ))}
+        </div>
+
+        {/* edit project view */}
+        {/* <EditProjectView /> */}
+      </React.Fragment>
+    );
+  }
+}
 
 export default ProjectPage;

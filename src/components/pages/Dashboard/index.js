@@ -25,7 +25,7 @@ const Dashboard = () => {
         <Navbar />
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Typography paragraph>
+          {/* <Typography paragraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
             dolor purus non enim praesent elementum facilisis leo vel. Risus at
@@ -54,7 +54,7 @@ const Dashboard = () => {
             euismod elementum nisi quis eleifend. Commodo viverra maecenas
             accumsan lacus vel facilisis. Nulla posuere sollicitudin aliquam
             ultrices sagittis orci a.
-          </Typography>
+          </Typography> */}
         </main>
       </div>
     </React.Fragment>

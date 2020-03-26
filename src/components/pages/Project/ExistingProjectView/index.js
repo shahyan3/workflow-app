@@ -29,7 +29,7 @@ const ExistingProjectView = () => {
     <main className={classes.content}>
       <div>
         {/* if create project component clicked - show create project form components*/}
-        <CreateProjectForm />
+        {/* <CreateProjectForm /> */}
       </div>
       <Card className={classes.root}>
         <CardActionArea>
