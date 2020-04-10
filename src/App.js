@@ -10,6 +10,8 @@ import Profile from "./components/pages/Profile/index";
 import ProjectPage from "./components/pages/Project/ProjectPage";
 import SprintsView from "./components/pages/Sprints/index";
 import AnalyticsView from "./components/pages//Analytics";
+import EditProjectView from "./components/pages/Project/EditProjectView";
+import ExistingProjectView from "./components/pages/Project/ExistingProjectView";
 
 class App extends Component {
   state = {};
@@ -21,7 +23,8 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Dashboard} />
             <Route path="/profile" component={Profile} />
-            <Route path="/projects" component={ProjectPage} />
+            <Route exact path="/projects" component={ProjectPage} />
+            <Route path="/projects/edit" component={EditProjectView} />
             <Route path="/sprints" component={SprintsView} />
             <Route path="/analytics" component={AnalyticsView} />
           </Switch>

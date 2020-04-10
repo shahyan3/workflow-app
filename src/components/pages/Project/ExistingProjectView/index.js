@@ -24,8 +24,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ExistingProjectView = () => {
+const ExistingProjectView = (props) => {
   const classes = useStyles();
+
+  const { project } = props;
 
   const view = (
     <main className={classes.content}>
@@ -56,7 +58,14 @@ const ExistingProjectView = () => {
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary">
-            <Link to="project/edit">Edit or Update</Link>
+            <Link
+              to={{
+                pathname: "projects/edit",
+                search: `?project=${project.id}`,
+              }}
+            >
+              Edit or Update
+            </Link>
           </Button>
         </CardActions>
       </Card>

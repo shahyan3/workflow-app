@@ -32,8 +32,6 @@ class ProjectPage extends Component {
     const projects = this.state.projects;
     return (
       <React.Fragment>
-        <NavBar />
-
         <CreateProjectForm onSave={this.onNewProjectSaved} />
 
         <div

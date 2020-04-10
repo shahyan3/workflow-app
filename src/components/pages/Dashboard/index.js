@@ -2,27 +2,27 @@ import React from "react";
 import Navbar from "../../common/navigation";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import LayoutGrid from "../../common/layout/LayoutGrid";
 
 // components
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    backgroundColor: "#FAFBFF"
+    backgroundColor: "#FAFBFF",
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3)
-  }
+    padding: theme.spacing(3),
+  },
 }));
 
 const Dashboard = () => {
   const classes = useStyles();
 
-  return (
+  const dashboard = (
     <React.Fragment>
       <div className={classes.root}>
-        <Navbar />
         <main className={classes.content}>
           <div className={classes.toolbar} />
           {/* <Typography paragraph>
@@ -59,6 +59,8 @@ const Dashboard = () => {
       </div>
     </React.Fragment>
   );
+
+  return <LayoutGrid view={dashboard}></LayoutGrid>;
 };
 
 export default Dashboard;
