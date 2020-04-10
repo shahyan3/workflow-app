@@ -8,7 +8,7 @@ import {
   Input,
   FormHelperText,
   TextField,
-  Button
+  Button,
 } from "@material-ui/core";
 
 // components
@@ -17,18 +17,18 @@ import SimpleModal from "../../../common/modal";
 
 var database = require("../../../../database");
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    textAlign: "right"
+    textAlign: "right",
   },
   formWrapper: {
     display: "flex",
     justifyContent: "center",
-    flexDirection: "column"
-  }
+    flexDirection: "column",
+  },
 }));
 
-const CreateProjectForm = props => {
+const CreateProjectForm = (props) => {
   const classes = useStyles();
 
   // react hook: easy way to add state to functional components for specific use
@@ -37,7 +37,7 @@ const CreateProjectForm = props => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
-  const handlSubmit = e => {
+  const handlSubmit = (e) => {
     e.preventDefault();
 
     console.log("Submitted project name: ", projectName);
@@ -50,7 +50,7 @@ const CreateProjectForm = props => {
         projectName,
         projectDesc,
         startDate,
-        endDate
+        endDate,
       };
 
       // save to database ajax
@@ -65,14 +65,12 @@ const CreateProjectForm = props => {
 
   var projectFormView = (
     <div>
-      <h3>START A NEW PROJECT</h3>
-      <hr></hr>
       <FormControl classes={{ root: classes.formWrapper }}>
         <InputLabel htmlFor="my-input">Project Name</InputLabel>
         <Input
           id="my-input"
           aria-describedby="my-helper-text"
-          onChange={e => setProjectName(e.target.value)} // setProjectName sets the state of projectName
+          onChange={(e) => setProjectName(e.target.value)} // setProjectName sets the state of projectName
         />
         <br></br>
         <TextField
@@ -82,7 +80,7 @@ const CreateProjectForm = props => {
           rows="4"
           defaultValue=""
           variant="filled"
-          onChange={e => setProjectDesc(e.target.value)}
+          onChange={(e) => setProjectDesc(e.target.value)}
         />
         <br />
         <div className={classes.datesWrapper}>
@@ -93,9 +91,9 @@ const CreateProjectForm = props => {
             defaultValue="2017-05-24"
             className={classes.dateItem}
             InputLabelProps={{
-              shrink: true
+              shrink: true,
             }}
-            onChange={e => setStartDate(e.target.value)}
+            onChange={(e) => setStartDate(e.target.value)}
           />
           <TextField
             id="date"
@@ -104,9 +102,9 @@ const CreateProjectForm = props => {
             defaultValue="2017-05-24"
             className={classes.dateItem}
             InputLabelProps={{
-              shrink: true
+              shrink: true,
             }}
-            onChange={e => setEndDate(e.target.value)}
+            onChange={(e) => setEndDate(e.target.value)}
           />
         </div>
         <br></br>
@@ -120,7 +118,7 @@ const CreateProjectForm = props => {
         <Button
           variant="contained"
           color="primary"
-          onClick={e => handlSubmit(e)}
+          onClick={(e) => handlSubmit(e)}
         >
           CREATE PROJECT
         </Button>
@@ -131,7 +129,12 @@ const CreateProjectForm = props => {
   const view = (
     <React.Fragment>
       <main className={classes.root}>
-        <SimpleModal btnName={"New Project"} innerComponent={projectFormView} />
+        <SimpleModal
+          btnName={"New Project"}
+          innerComponent={projectFormView}
+          showModalBtn={false}
+          modalTitle={"START A NEW PROJECT"}
+        />
       </main>
     </React.Fragment>
   );

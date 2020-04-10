@@ -3,12 +3,12 @@ import React, { Component } from "react";
 import NavBar from "../../common/navigation";
 import ExistingProjectView from "./ExistingProjectView/index";
 import CreateProjectForm from "./CreateProjectForm/index";
-
+import EditProjectView from "./EditProjectView";
 var database = require("../../../database");
 
 class ProjectPage extends Component {
   state = {
-    projects: [{ a: "a" }]
+    projects: [{ a: "sfsdfsd" }],
   };
 
   componentDidMount() {
@@ -39,18 +39,15 @@ class ProjectPage extends Component {
         <div
           style={{
             display: "flex",
-            flexWrap: "wrap"
+            flexWrap: "wrap",
           }}
         >
-          {projects.map(project => (
+          {projects.map((project) => (
             <div style={{ width: "50%" }}>
               <ExistingProjectView project={project} />
             </div>
           ))}
         </div>
-
-        {/* edit project view */}
-        {/* <EditProjectView /> */}
       </React.Fragment>
     );
   }

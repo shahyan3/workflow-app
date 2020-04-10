@@ -7,9 +7,16 @@ import {
   Input,
   FormHelperText,
   TextField,
-  Button
+  Button,
 } from "@material-ui/core";
-
+import TableView from "../../pages/Sprints/Table/TableView";
+import Dialog from "@material-ui/core/Dialog";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import Typography from "@material-ui/core/Typography";
 // function rand() {
 //   return Math.round(Math.random() * 20) - 10;
 // }
@@ -23,34 +30,43 @@ function getModalStyle() {
   return {
     top: `${top}%`,
     left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`
+    transform: `translate(-${top}%, -${left}%)`,
   };
 }
 
-const useStyles = makeStyles(theme => ({
-  paper: {
+const useStyles = makeStyles((theme) => ({
+  // paper: {
+  //   position: "absolute",
+  //   width: "50%",
+  //   backgroundColor: theme.palette.background.paper,
+  //   border: "2px solid #000",
+  //   boxShadow: theme.shadows[5],
+  //   padding: theme.spacing(2, 4, 3),
+  // },
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  closeButton: {
     position: "absolute",
-    width: "50%",
-    // height: "82%",
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3)
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
   },
 
   datesWrapper: {
     display: "flex",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
   dateItem: {
-    margin: "0 0.5rem"
+    margin: "0 0.5rem",
   },
   createdByStyle: {
-    textAlign: "center"
+    textAlign: "center",
   },
   btnWrapper: {
-    textAlign: "right"
-  }
+    textAlign: "right",
+  },
 }));
 
 export default function SimpleModal(props) {
@@ -60,16 +76,18 @@ export default function SimpleModal(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => {
+    console.log("open clicke!@");
     setOpen(true);
   };
 
   const handleClose = () => {
+    console.log("closed clicke!@");
     setOpen(false);
   };
 
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleOpen}>
+      {/* <Button variant="contained" color="primary" onClick={handleOpen}>
         {props.btnName}
       </Button>
       <Modal
@@ -80,67 +98,37 @@ export default function SimpleModal(props) {
       >
         <div style={modalStyle} className={classes.paper}>
           {props.innerComponent}
-
-          {/* <div>
-            <h3>START A NEW PROJECT</h3>
-            <hr></hr>
-            <FormControl classes={{ root: classes.formWrapper }}>
-              <InputLabel htmlFor="my-input">Project Name</InputLabel>
-              <Input id="my-input" aria-describedby="my-helper-text" />
-              <br></br>
-              <TextField
-                id="filled-multiline-static"
-                label="Description"
-                multiline
-                rows="4"
-                defaultValue=""
-                variant="filled"
-              />
-              <br />
-              <div className={classes.datesWrapper}>
-                <TextField
-                  id="date"
-                  label="Start"
-                  type="date"
-                  defaultValue="2017-05-24"
-                  className={classes.dateItem}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                />
-                <TextField
-                  id="date"
-                  label="End"
-                  type="date"
-                  defaultValue="2017-05-24"
-                  className={classes.dateItem}
-                  InputLabelProps={{
-                    shrink: true
-                  }}
-                />
-              </div>
-              <br></br>
-              <br></br>
-              <FormHelperText
-                id="my-helper-text"
-                className={classes.createdByStyle}
-              >
-                Created By <span>Shahyan Hasan</span>
-              </FormHelperText>
-            </FormControl>{" "}
-            <br /> <br />
-            <div className={classes.btnWrapper}>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={() => alert("created!")}
-              >
-                CREATE PROJECT
-              </Button>
-            </div>
-          </div> */}
+          <Button onClick={handleClose} variant="contained" color="primary">
+            Close
+          </Button>
         </div>
-      </Modal>
+      </Modal> */}
+      <div>
+        <Button variant="outlined" color="primary" onClick={handleOpen}>
+          {props.btnName}
+        </Button>
+        <Dialog
+          onClose={handleClose}
+          aria-labelledby="customized-dialog-title"
+          open={open}
+          maxWidth={"xs"}
+          fullWidth={true}
+        >
+          <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+            {props.modalTitle}
+          </DialogTitle>
+          <DialogContent dividers>{props.innerComponent}</DialogContent>
+          {props.showModalBtn ? (
+            <DialogActions>
+              <Button autoFocus onClick={handleClose} color="primary">
+                {props.modalBtnText}
+              </Button>
+            </DialogActions>
+          ) : (
+            <br></br>
+          )}
+        </Dialog>
+      </div>
     </div>
   );
 }

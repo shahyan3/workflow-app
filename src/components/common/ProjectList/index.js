@@ -16,50 +16,50 @@ import Typography from "@material-ui/core/Typography";
 import FolderIcon from "@material-ui/icons/Folder";
 import OpenInNewIcon from "@material-ui/icons/OpenInNew";
 import { Button, DialogTitle } from "@material-ui/core";
-import DisplayTasksModal from "../../pages/Sprints/DisplayTasksModal";
+import DisplayTasksModal from "../../pages/Sprints/DisplayTasksList";
 import SimpleModal from "../modal";
-import ProjectTasksModal from "../../pages/Sprints/DisplayTasksModal/index";
+import ProjectTasksModal from "../../pages/Sprints/DisplayTasksList/index";
 import PanelTitle from "../../pages/Project/TasksComponents/PanelTitle";
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    flexGrow: 1
+    flexGrow: 1,
   },
+
   demo: {
-    backgroundColor: theme.palette.background.paper
+    backgroundColor: theme.palette.background.paper,
   },
   title: {
-    margin: theme.spacing(4, 0, 2)
+    margin: theme.spacing(4, 0, 2),
   },
   listItem: {
     display: "flex",
     justifyContent: "space-between",
     backgroundColor: "#f8f8f8",
-    margin: "0.5rem"
-  }
+    margin: "0.5rem",
+  },
 }));
 
 var projects = ["Project One", "Project two", "Project Three"];
-export default function ProjectListModal() {
+export default function ProjectList(props) {
   const classes = useStyles();
+
+  const { onProjectSelected } = props;
 
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={12}>
-          <Typography variant="h6" className={classes.title}>
-            ALL PROJECTS
-          </Typography>
           <List>
-            {projects.map(project => (
+            {projects.map((project) => (
               <ListItem className={classes.listItem}>
                 <Typography variant="body1">{project}</Typography>
-                <DisplayTasksModal />{" "}
+                <Button onClick={() => onProjectSelected(true)}>
+                  {console.log("project clicked")}
+                  <Typography variant="body2">Open</Typography>
+                </Button>
               </ListItem>
             ))}
           </List>
-          <Button variant="contained" color="primary">
-            Close
-          </Button>
         </Grid>
       </Grid>
     </div>

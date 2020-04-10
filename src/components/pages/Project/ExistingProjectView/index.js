@@ -9,17 +9,19 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import LayoutGrid from "../../../common/layout/LayoutGrid";
 import CreateProjectForm from "../CreateProjectForm/index";
+import EditProjectView from "../EditProjectView";
+import { Link } from "react-router-dom";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345
+    maxWidth: 345,
   },
   media: {
-    height: 140
+    height: 140,
   },
   content: {
     // backgroundColor: "red"
-  }
+  },
 }));
 
 const ExistingProjectView = () => {
@@ -54,7 +56,7 @@ const ExistingProjectView = () => {
         </CardActionArea>
         <CardActions>
           <Button size="small" color="primary">
-            Edit or Update
+            <Link to="project/edit">Edit or Update</Link>
           </Button>
         </CardActions>
       </Card>
