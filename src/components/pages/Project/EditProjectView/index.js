@@ -1,6 +1,4 @@
-import React, { Component } from "react";
-
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState, useLayoutEffect } from "react";
 
 // components
 import { Paper } from "@material-ui/core";
@@ -11,6 +9,7 @@ import PanelDescription from "../TasksComponents/PanelDescription";
 import ProjectDetailsView from "../ProjectDetailsView/index";
 import LayoutGrid from "../../../common/layout/LayoutGrid";
 import database from "../../../../database";
+import { useParams } from "react-router-dom";
 
 const classes = {
   projectContainer: {
@@ -28,47 +27,62 @@ const classes = {
   project: {},
 };
 
-class EditProjectView extends Component {
-  state = {};
+function EditProjectView(props) {
+  const [project, setProject] = useState({});
 
-  componentDidMount() {
-    // get ip from params
-    let id = 3;
-    // database ajax request
-    const project = database.projects.find((project) => project.id == id);
-    this.setState({ project });
-    console.log("project..", this.state.project);
-  }
+  // get id from params
+  const { id } = useParams();
 
-  render() {
-    const { project } = this.state;
+  // syncronously (same time before and then after) renders it will use this hook
+  useLayoutEffect(() => {
+    // fake* ajax request to database
+    const data = database.projects.find((project) => {
+      return project.id == id;
+    }, []);
 
-    const projectView = (
-      <React.Fragment>
-        <main style={classes.content}>
-          <div style={classes.projectContainer}>
-            <div style={classes.projectOverviewWrapper}>
-              <Paper elevation={2}>
-                <div style={classes.project}>
-                  {<ProjectDetailsView project={project} />}
-                </div>
-              </Paper>
-            </div>
-            <div style={classes.tasksContainer}>
-              <h3>ALL TASKS</h3>
-              <TaskExpansionPanel
-                panelTitle={<PanelTitle />}
-                panelDetails={<PanelDescription />}
-              />
-              <CreateTaskBtn />
-            </div>
+    console.log("Let's see:", project);
+    setProject(data);
+  });
+
+  const projectView = (
+    <React.Fragment>
+      <main style={classes.content}>
+        <div style={classes.projectContainer}>
+          <div style={classes.projectOverviewWrapper}>
+            <Paper elevation={2}>
+              <div style={classes.project}>
+                {<ProjectDetailsView project={project} />}
+              </div>
+            </Paper>
           </div>
-        </main>
-      </React.Fragment>
-    );
+          <div style={classes.tasksContainer}>
+            <h3>ALL TASKS</h3>
 
-    return <LayoutGrid view={projectView} />;
-  }
+            <TaskExpansionPanel
+              panelTitle={
+                <PanelTitle
+                  // totalTimeInMinutes={task.totalTimeInMinutes}
+                  // taskNumber={task.taskNumber}
+                  // taskName={task.taskName}
+                  taskName={project.tasks[0].taskName}
+                />
+              }
+              panelDetails={<PanelDescription />}
+            />
+
+            <CreateTaskBtn />
+          </div>
+        </div>
+      </main>
+      }
+    </React.Fragment>
+  );
+
+  return project !== null ? (
+    <LayoutGrid view={projectView} />
+  ) : (
+    <p>loading...</p>
+  );
 }
 
 export default EditProjectView;

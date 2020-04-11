@@ -42,7 +42,11 @@ class ProjectPage extends Component {
         >
           {projects.map((project) => (
             <div style={{ width: "50%" }}>
-              <ExistingProjectView project={project} />
+              <ExistingProjectView
+                projectID={project.id}
+                projectName={project.projectName}
+                projectDescription={project.projectDescription}
+              />
             </div>
           ))}
         </div>

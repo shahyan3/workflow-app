@@ -24,7 +24,7 @@ class App extends Component {
             <Route path="/" exact component={Dashboard} />
             <Route path="/profile" component={Profile} />
             <Route exact path="/projects" component={ProjectPage} />
-            <Route path="/projects/edit" component={EditProjectView} />
+            <Route path="/projects/edit/:id" component={EditProjectView} />
             <Route path="/sprints" component={SprintsView} />
             <Route path="/analytics" component={AnalyticsView} />
           </Switch>

@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const ExistingProjectView = (props) => {
   const classes = useStyles();
 
-  const { project } = props;
+  const { projectID, projectDescription, projectName } = props;
 
   const view = (
     <main className={classes.content}>
@@ -48,11 +48,10 @@ const ExistingProjectView = (props) => {
             </Typography>
 
             <Typography gutterBottom variant="h5" component="h2">
-              Write A Novel
+              {projectName}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              Lizards are a widespread group of squamate reptiles, with over
-              6,000 species, ranging across all continents except Antarctica
+              {projectDescription}
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -60,8 +59,7 @@ const ExistingProjectView = (props) => {
           <Button size="small" color="primary">
             <Link
               to={{
-                pathname: "projects/edit",
-                search: `?project=${project.id}`,
+                pathname: `projects/edit/${projectID}`,
               }}
             >
               Edit or Update
