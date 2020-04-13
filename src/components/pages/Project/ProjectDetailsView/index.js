@@ -35,39 +35,29 @@ const theme = createMuiTheme({
 export default function ProjectDetailsView(props) {
   const classes = useStyles();
 
-  // const { project } = props;
-  let project = {
-    id: 1,
-    projectName: "Write a book",
-    tasksNumber: 15,
-    startDuration: new Date(),
-    endDate: new Date(),
-    projectCreator: "Shahyan",
-  };
-  console.log("detaill view", project);
+  const { project } = props;
 
   return (
     <FormControl className={classes.root} noValidate>
-      <ThemeProvider theme={theme}>
-        <TextField
-          className={classes.margin}
-          label="Project Name"
-          value="Research paper for school"
-          variant="outlined"
-          id="mui-theme-provider-outlined-input"
-          disabled="true"
-        />
-      </ThemeProvider>
+      <TextField
+        className={classes.margin}
+        label="Project Name"
+        value={project.projectName}
+        variant="outlined"
+        id="mui-theme-provider-outlined-input"
+        disabled="true"
+      />
 
-      <TextArea />
+      <TextArea projectDescription={project.projectDescription} />
+
       <div className={classes.infoBoxWrapper}>
         <InfoBox infoBoxTitle="Tasks" infoBoxValue={project.tasksNumber} />
-        {/* <InfoBox infoBoxTitle="Duration" infoBoxValue={project.duation} /> */}
         <InfoBox
-          infoBoxTitle="Start Date"
-          // infoBoxValue={project.startDuration}
+          infoBoxTitle="Duration"
+          infoBoxValue={project.totalTimeInMinutes}
         />
-        {/* <InfoBox infoBoxTitle="End Date" infoBoxValue={project.endDuration} /> */}
+        <InfoBox infoBoxTitle="Start Date" infoBoxValue={project.startDate} />
+        <InfoBox infoBoxTitle="End Date" infoBoxValue={project.endDate} />
         <InfoBox
           infoBoxTitle="Created By"
           infoBoxValue={project.projectCreator}

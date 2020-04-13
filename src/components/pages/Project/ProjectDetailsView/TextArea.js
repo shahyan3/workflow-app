@@ -2,14 +2,14 @@ import React from "react";
 import TextareaAutosize from "@material-ui/core/TextareaAutosize";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: "95%",
-    margin: "0 10px"
-  }
+    margin: "0 10px",
+  },
 }));
 
-const TextArea = props => {
+const TextArea = (props) => {
   const classes = useStyles();
 
   return (
@@ -19,7 +19,7 @@ const TextArea = props => {
       rowsMin={8}
       placeholder="Overview"
       disabled="true"
-      value="Find top ten websites and write an essay on why world markets will collapse"
+      value={props.projectDescription}
     />
   );
 };

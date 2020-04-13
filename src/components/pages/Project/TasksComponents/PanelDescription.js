@@ -1,28 +1,25 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   taskDescription: {
     textAlign: "left",
-    fontSize: "90%"
+    fontSize: "90%",
   },
   taskDetailsFlex: {
     display: "flex",
-    justifyContent: "space-around"
-  }
+    justifyContent: "space-around",
+  },
 }));
 
-const PanelDescription = () => {
+const PanelDescription = (props) => {
   const classes = useStyles();
 
   return (
     <div id="task-details-wrapper">
       <b>DESCRIPTION</b>
       <br></br>
-      <p className={classes.taskDescription}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        malesuada lacus ex, sit amet blandit leo lobortis eget.
-      </p>
+      <p className={classes.taskDescription}>{props.taskDescription}</p>
     </div>
   );
 };

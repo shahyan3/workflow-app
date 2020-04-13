@@ -27,6 +27,14 @@ const classes = {
   project: {},
 };
 
+// function printTasks(tasks) {
+//   if (tasks && tasks.length > 0) {
+//     return tasks[0].taskName;
+//   } else {
+//     return "No tasks found";
+//   }
+// }
+
 function EditProjectView(props) {
   const [project, setProject] = useState({});
 
@@ -40,49 +48,48 @@ function EditProjectView(props) {
       return project.id == id;
     }, []);
 
-    console.log("Let's see:", project);
     setProject(data);
   });
 
-  const projectView = (
-    <React.Fragment>
-      <main style={classes.content}>
-        <div style={classes.projectContainer}>
-          <div style={classes.projectOverviewWrapper}>
-            <Paper elevation={2}>
-              <div style={classes.project}>
-                {<ProjectDetailsView project={project} />}
-              </div>
-            </Paper>
-          </div>
-          <div style={classes.tasksContainer}>
-            <h3>ALL TASKS</h3>
-
-            <TaskExpansionPanel
-              panelTitle={
-                <PanelTitle
-                  // totalTimeInMinutes={task.totalTimeInMinutes}
-                  // taskNumber={task.taskNumber}
-                  // taskName={task.taskName}
-                  taskName={project.tasks[0].taskName}
+  if (project.tasks) {
+    const view = (
+      <React.Fragment>
+        <main style={classes.content}>
+          <div style={classes.projectContainer}>
+            <div style={classes.projectOverviewWrapper}>
+              <Paper elevation={2}>
+                <div style={classes.project}>
+                  {<ProjectDetailsView project={project} />}
+                </div>
+              </Paper>
+            </div>
+            <div style={classes.tasksContainer}>
+              <h3>ALL TASKS</h3>
+              {project.tasks.map((task) => (
+                <TaskExpansionPanel
+                  subTasks={task.subTasks}
+                  panelTitle={
+                    <PanelTitle
+                      totalTimeInMinutes={task.totalTimeInMinutes}
+                      taskNumber={task.taskNumber}
+                      taskName={task.taskName}
+                    />
+                  }
+                  panelDetails={
+                    <PanelDescription taskDescription={task.taskDescription} />
+                  }
                 />
-              }
-              panelDetails={<PanelDescription />}
-            />
-
-            <CreateTaskBtn />
+              ))}
+              <CreateTaskBtn />
+            </div>
           </div>
-        </div>
-      </main>
-      }
-    </React.Fragment>
-  );
-
-  return project !== null ? (
-    <LayoutGrid view={projectView} />
-  ) : (
-    <p>loading...</p>
-  );
+        </main>
+      </React.Fragment>
+    );
+    return <LayoutGrid view={view} />;
+  } else {
+    return <p>loading..</p>;
+  }
 }
 
 export default EditProjectView;

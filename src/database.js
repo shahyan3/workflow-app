@@ -6,16 +6,17 @@ var database = {
       projectDescription:
         "Hehe Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging across all continents except Antarctica",
       tasksNumber: 15,
-      startDuration: new Date().toDateString(),
+      startDate: new Date().toDateString(),
       endDate: new Date().toDateString(),
       projectCreator: "joe",
+      totalTimeInMinutes: 90,
       tasks: [
         {
           taskNumber: 1,
           taskName: "Draw a horse",
           totalTimeInMinutes: 12,
           taskDescription:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+            "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
           taskMeta: {
             assignedBy: "Sammy O'neil",
             assignee: "Joe Doe",
@@ -26,7 +27,7 @@ var database = {
               subTaskName: "Find a paper",
               subTotalTimeInMinutes: 2,
               subTaskDescription:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+                "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
               subTaskMeta: {
                 assignedBy: "Sammy O'neil",
                 assignee: "Joe Doe",
@@ -37,7 +38,7 @@ var database = {
               subTaskName: "Find a pen",
               subTotalTimeInMinutes: 3,
               subTaskDescription:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+                "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
               subTaskMeta: {
                 assignedBy: "Sammy O'neil",
                 assignee: "Joe Doe",
@@ -48,13 +49,25 @@ var database = {
               subTaskName: "draw a 1st draft",
               subTotalTimeInMinutes: 5,
               subTaskDescription:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+                "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
               subTaskMeta: {
                 assignedBy: "Sammy O'neil",
                 assignee: "Joe Doe",
               },
             },
           ],
+        },
+        {
+          taskNumber: 2,
+          taskName: "Color the horse",
+          totalTimeInMinutes: 9,
+          taskDescription:
+            "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+          taskMeta: {
+            assignedBy: "Sammy O'neil",
+            assignee: "Joe Doe",
+          },
+          subTasks: [],
         },
       ],
     },
@@ -64,16 +77,17 @@ var database = {
       projectDescription:
         "Hehe Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging across all continents except Antarctica",
       tasksNumber: 4,
-      startDuration: new Date().toDateString(),
+      startDate: new Date().toDateString(),
       endDate: new Date().toDateString(),
       projectCreator: "Samir",
+      totalTimeInMinutes: 90,
       tasks: [
         {
           taskNumber: 1,
           taskName: "Design a mockup",
           totalTimeInMinutes: 20,
           taskDescription:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+            "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
           taskMeta: {
             assignedBy: "Sammy O'neil",
             assignee: "Joe Doe",
@@ -84,7 +98,7 @@ var database = {
               subTaskName: "User research",
               subTotalTimeInMinutes: 120,
               subTaskDescription:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+                "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
               subTaskMeta: {
                 assignedBy: "Jonny Sai",
                 assignee: "Mike Doe",
@@ -95,7 +109,7 @@ var database = {
               subTaskName: "Photoshop wireframe",
               subTotalTimeInMinutes: 230,
               subTaskDescription:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+                "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
               subTaskMeta: {
                 assignedBy: "Jonny Sai",
                 assignee: "Mike Doe",
@@ -111,16 +125,17 @@ var database = {
       projectDescription:
         "Hehe  Lizards are a widespread group of squamate reptiles, with over 6,000 species,ranging across all continents except Antarctica",
       tasksNumber: 12,
-      startDuration: new Date().toDateString(),
+      startDate: new Date().toDateString(),
       endDate: new Date().toDateString(),
       projectCreator: "Potter",
+      totalTimeInMinutes: 90,
       tasks: [
         {
           taskNumber: 1,
           taskName: "Watch lecture and complete tutorial sheet",
           totalTimeInMinutes: 19,
           taskDescription:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+            "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
           taskMeta: {
             assignedBy: "Sammy O'neil",
             assignee: "Joe Doe",
@@ -131,7 +146,7 @@ var database = {
               subTaskName: "Watch lecture review",
               subTotalTimeInMinutes: 2,
               subTaskDescription:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+                "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
               subTaskMeta: {
                 assignedBy: "Sammy O'neil",
                 assignee: "Joe Doe",
@@ -142,7 +157,7 @@ var database = {
               subTaskName: "Attempt questions for tutorial",
               subTotalTimeInMinutes: 25,
               subTaskDescription:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+                "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
               subTaskMeta: {
                 assignedBy: "Sammy O'neil",
                 assignee: "Joe Doe",
@@ -153,7 +168,7 @@ var database = {
               subTaskName: "Create exam notes",
               subTotalTimeInMinutes: 40,
               subTaskDescription:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
+                "task description...Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget",
               subTaskMeta: {
                 assignedBy: "Sammy O'neil",
                 assignee: "Joe Doe",
