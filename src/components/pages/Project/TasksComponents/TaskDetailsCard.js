@@ -2,23 +2,23 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import TaskTimeIcon from "./TaskTimeIcon";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   detailsRoot: {
-    width: "100%"
+    width: "100%",
   },
   taskDetailsFlex: {
     display: "flex",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
   },
   taskDetailsFlexItems: {
     marginRight: "2rem",
     backgroundColor: "#EEEEEE",
     borderRadius: "10px",
     padding: "0.7rem",
-    fontSize: "90%"
-  }
+    fontSize: "90%",
+  },
 }));
-const TaskDetailsCard = props => {
+const TaskDetailsCard = (props) => {
   const classes = useStyles();
 
   return (

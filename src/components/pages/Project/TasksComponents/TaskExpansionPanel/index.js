@@ -45,64 +45,63 @@ export default function TaskExpansionPanel(props) {
   const [subTasks, setSubTasks] = useState({}); // initially going to be null ?
 
   useLayoutEffect(() => {
-    if (subTasks.length > 0) {
-      setSubTasks(subTasks);
-    }
+    setSubTasks(props.task.subTasks);
+    // console.log(subTasks, "subtasks...");
   }, []);
 
-  return (
-    <div className={classes.root}>
-      <ExpansionPanel>
-        <ExpansionPanelSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-          className={classes.headingWrapper}
-        >
-          <Typography className={classes.heading}>
-            {props.panelTitle}
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography className={classes.taskDescription}>
-            {props.panelDetails}
-            <br></br>
-            <Divider light />
-            <br></br>
-            <b>SUB TASKS</b>
-            <br></br>
-            <br></br>
-            {subTasks && subTasks.length > 0 ? (
-              subTasks.map((subTask) => (
-                <SubTaskExpansionPanel
-                  panelTitle="Sub Task 1: Find a papers"
-                  panelDescription={<PanelDescription />}
-                />
-              ))
-            ) : (
-              <p>no sub tasks</p>
-            )}
+  if (subTasks.length >= 0) {
+    return (
+      <div className={classes.root}>
+        <ExpansionPanel>
+          <ExpansionPanelSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+            className={classes.headingWrapper}
+          >
+            <Typography className={classes.heading}>
+              {props.panelTitle}
+            </Typography>
+          </ExpansionPanelSummary>
+          <ExpansionPanelDetails>
+            <Typography className={classes.taskDescription}>
+              <br></br>
+              <Divider light />
+              <br></br>
+              <b>SUB TASKS</b>
+              <br></br>
+              <br></br>
+              {subTasks && subTasks.length > 0 ? (
+                subTasks.map((subTask) => (
+                  <SubTaskExpansionPanel
+                    panelTitle={subTask.subTaskName}
+                    assignedBy={subTask.subTaskMeta.assignedBy}
+                    assignee={subTask.subTaskMeta.assignee}
+                    panelDescription={
+                      <PanelDescription
+                        taskDescription={subTask.subTaskDescription}
+                      />
+                    }
+                  />
+                ))
+              ) : (
+                <p>no sub tasks</p>
+              )}
 
-            {console.log("rendered subtasks ==<<", subTasks)}
-            {/* <SubTaskExpansionPanel
-              panelTitle="Sub Task 2: Meet with Sam"
-              panelDescription={<PanelDescription />}
-            />
-            <SubTaskExpansionPanel
-              panelTitle="Sub Task 3: Finalize papers"
-              panelDescription={<PanelDescription />}
-            /> */}
-            <TaskDetailsCard
-              assignedBy={"Fedrick"}
-              assignee={"Katie"}
-              timeValue="14"
-              timeUnit="min"
-            />
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
+              <TaskDetailsCard
+                assignedBy={props.task.taskMeta.assignedBy}
+                assignee={props.task.taskMeta.assignee}
+                timeValue={props.task.totalTimeInMinutes}
+                timeUnit="min"
+              />
+            </Typography>
+          </ExpansionPanelDetails>
+        </ExpansionPanel>
 
-      {/* <FloatingActionButtons /> */}
-    </div>
-  );
+        {/* <FloatingActionButtons /> */}
+      </div>
+    );
+  } else {
+    return <p>loading</p>;
+  }
 }

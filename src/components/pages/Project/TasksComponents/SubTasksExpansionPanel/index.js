@@ -9,25 +9,25 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 // components
 import TaskDetailsCard from "../TaskDetailsCard";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
     marginBottom: "10px",
-    borderTop: "orange 2px solid"
+    borderTop: "orange 2px solid",
   },
   subTaskWrapper: {
     backgroundColor: "orange",
     color: "white",
-    fontWeight: "bolder"
+    fontWeight: "bolder",
   },
   heading: {
     fontSize: theme.typography.pxToRem(15),
     fontWeight: theme.typography.fontWeightRegular,
-    width: "100%"
+    width: "100%",
   },
   taskDescription: {
-    textAlign: "left"
-  }
+    textAlign: "left",
+  },
 }));
 
 export default function SubTaskExpansionPanel(props) {
@@ -50,9 +50,9 @@ export default function SubTaskExpansionPanel(props) {
           <Typography className={classes.taskDescription}>
             {props.panelDescription}
             <TaskDetailsCard
-              assignedBy={"Fedrick"}
-              assignee={"Katie"}
-              timeValue="5"
+              assignedBy={props.assignedBy}
+              assignee={props.assignee}
+              timeValue={props.timeValue}
               timeUnit="min"
             />
           </Typography>

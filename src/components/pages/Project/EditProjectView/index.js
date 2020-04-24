@@ -64,10 +64,11 @@ function EditProjectView(props) {
               </Paper>
             </div>
             <div style={classes.tasksContainer}>
-              <h3>ALL TASKS</h3>
+              <h3>ALL TASKS {console.log("@@=>", project.tasks)}</h3>
+
               {project.tasks.map((task) => (
                 <TaskExpansionPanel
-                  subTasks={task.subTasks}
+                  task={task}
                   panelTitle={
                     <PanelTitle
                       totalTimeInMinutes={task.totalTimeInMinutes}
