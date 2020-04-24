@@ -1,5 +1,23 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Work Flow Project Management App - React.js  Redux  Firebase
+
+
+<b>Sprints View</b><br/>
+
+![alt text](https://i.imgur.com/bc1mvMR.png)
+
+<br/>
+
+<b>Projects Overview</b><br/>
+
+![alt text](https://i.imgur.com/yB9Bxa5.png)
+
+<br />
+<b>New Project</b><br/>
+
+![alt text](https://i.imgur.com/IH6XlQl.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
